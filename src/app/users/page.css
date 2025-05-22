@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+main {
+    padding: 2rem;
+
+    ul {
+        li {
+            text-decoration: underline;
+        }
+    }
+}
