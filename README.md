@@ -2,6 +2,13 @@
 
 this is a proof of concept project to create the first point of sales system by our new team
 
+## Kamu perlu
+
+1. Install node 18.19.0
+2. Clone repository ini
+3. Buka VSCode atau lainnya dan jalankan `npm install`
+4. Untuk jalankan project `npm run dev`
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
