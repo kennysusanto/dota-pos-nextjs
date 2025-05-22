@@ -8,6 +8,23 @@ this is a proof of concept project to create the first point of sales system by 
 2. Clone repository ini
 3. Buka VSCode atau lainnya dan jalankan `npm install`
 4. Untuk jalankan project `npm run dev`
+5. Pastikan mysql terinstall untuk local development
+6. Buatlah `.env` dengan isi berikut
+
+```
+NODE_ENV='development'
+MYSQL_HOST_DEV=127.0.0.1
+MYSQL_PORT_DEV=3306
+MYSQL_USERNAME_DEV='root'
+MYSQL_PASSWORD_DEV='root'
+MYSQL_DATABASE_DEV='dotapos'
+
+MYSQL_HOST=127.0.0.1
+MYSQL_PORT=3306
+MYSQL_USERNAME='root'
+MYSQL_PASSWORD='root'
+MYSQL_DATABASE='dotapos'
+```
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
