@@ -1,10 +1,10 @@
 import { NextResponse, NextRequest } from "next/server";
-import { getPhoto } from "@/app/lib/data";
+import { getUser } from "@/app/lib/data";
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: number }> }) {
     try {
         const id = (await params).id;
-        const results = await getPhoto(id);
+        const results = await getUser(id);
         return NextResponse.json(results);
     } catch (err) {
         console.log("ERROR: API - ", (err as Error).message);
@@ -21,6 +21,6 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     const id = (await params).id;
-    // e.g. Delete photo with ID `id` in DB
+    // e.g. Delete user with ID `id` in DB
     return new Response(null, { status: 204 });
 }

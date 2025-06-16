@@ -2,6 +2,7 @@ import "reflect-metadata";
 import { GetDBSettings, IDBSettings } from "@/shared/common";
 import { DataSource } from "typeorm";
 import { Photo } from "./entity/Photo";
+import { User } from "@/app/entity/User";
 
 let connectionParams = GetDBSettings();
 
@@ -14,7 +15,7 @@ export const AppDataSource = new DataSource({
     database: connectionParams.database,
     synchronize: true,
     logging: true,
-    entities: [Photo],
+    entities: [Photo, User],
     subscribers: [],
     migrations: [],
 });
