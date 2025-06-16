@@ -1,9 +1,9 @@
 // import mysql from "mysql2/promise";
 // import { GetDBSettings, IDBSettings } from "@/shared/common";
 // import { IUser, User } from "./model";
-import { Photo } from "../entity/Photo";
-import { User } from "@/app/entity/User";
-import { AppDataSource, initializeDatabase } from "../data-source";
+import { Photo } from "@/entity/Photo";
+import { User } from "@/entity/User";
+import { AppDataSource, initializeDatabase } from "./data-source";
 // import { NextResponse, NextRequest } from "next/server";
 
 // let connectionParams = GetDBSettings();

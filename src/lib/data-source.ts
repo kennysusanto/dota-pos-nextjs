@@ -1,8 +1,8 @@
 import "reflect-metadata";
 import { GetDBSettings, IDBSettings } from "@/shared/common";
 import { DataSource } from "typeorm";
-import { Photo } from "./entity/Photo";
-import { User } from "@/app/entity/User";
+import { Photo } from "@/entity/Photo";
+import { User } from "@/entity/User";
 
 let connectionParams = GetDBSettings();
 

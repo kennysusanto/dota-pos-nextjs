@@ -1,6 +1,8 @@
 // (Server Component)
 import "./page.css";
-import { User } from "@/app/entity/User";
+import { User } from "@/entity/User";
+import BasicCard from "./UserCard";
+import Box from "@mui/material/Box";
 
 export default async function UsersPage() {
     // This fetch runs on the server (no client-side code needed here)
@@ -10,13 +12,20 @@ export default async function UsersPage() {
     return (
         <main>
             <h1>Users</h1>
-            <ul>
-                {data.map((user: User) => (
-                    <li key={user.id}>
-                        {user.firstname} {user.lastname}
-                    </li>
-                ))}
-            </ul>
+            <div>
+                <Box
+                    sx={{
+                        width: "100%",
+                        display: "grid",
+                        gridTemplateColumns: "repeat(auto-fill, minmax(min(200px, 100%), 1fr))",
+                        gap: 10,
+                    }}
+                >
+                    {data.map((user: User) => (
+                        <BasicCard propUser={user} key={user.id} />
+                    ))}
+                </Box>
+            </div>
         </main>
     );
 }

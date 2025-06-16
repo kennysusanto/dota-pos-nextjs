@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
-import { getUsers, addUser } from "@/app/lib/data";
-import { User } from "@/app/entity/User";
+import { getUsers, addUser } from "@/lib/data";
+import { User } from "@/entity/User";
 
 export async function GET(request: Request) {
     try {

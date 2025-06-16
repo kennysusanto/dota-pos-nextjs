@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
-import { getPhotos, addPhoto } from "@/app/lib/data";
-import { Photo } from "@/app/entity/Photo";
+import { getPhotos, addPhoto } from "@/lib/data";
+import { Photo } from "@/entity/Photo";
 
 export async function GET(request: NextRequest) {
     try {

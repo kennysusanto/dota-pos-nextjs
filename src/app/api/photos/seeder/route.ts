@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
-import { addPhotoSeed } from "@/app/lib/data";
+import { addPhotoSeed } from "@/lib/data";
 
 export async function POST(request: NextRequest) {
     try {
