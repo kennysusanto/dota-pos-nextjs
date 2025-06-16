@@ -10,22 +10,27 @@ export default async function UsersPage() {
     const data = await res.json();
 
     return (
-        <main>
+        <div className="p-8">
             <h1>Users</h1>
-            <div>
-                <Box
-                    sx={{
-                        width: "100%",
-                        display: "grid",
-                        gridTemplateColumns: "repeat(auto-fill, minmax(min(200px, 100%), 1fr))",
-                        gap: 10,
-                    }}
-                >
-                    {data.map((user: User) => (
-                        <BasicCard propUser={user} key={user.id} />
-                    ))}
-                </Box>
-            </div>
-        </main>
+            <main className="flex flex-col row-start-3 ">
+                <div>
+                    <Box
+                        sx={{
+                            width: "100%",
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fill, minmax(min(200px, 100%), 1fr))",
+                            gap: 10,
+                        }}
+                    >
+                        {data.map((user: User) => (
+                            <BasicCard propUser={user} key={user.id} />
+                        ))}
+                    </Box>
+                </div>
+            </main>
+            <footer className="row-start-3 flex-wrap items-center justify-center">
+                <a href="/">Back →</a>
+            </footer>
+        </div>
     );
 }
