@@ -7,7 +7,11 @@ import Box from "@mui/material/Box";
 export default async function UsersPage() {
     // This fetch runs on the server (no client-side code needed here)
     const res = await fetch("http://localhost:3000/api/users");
-    const data = await res.json();
+    let data = await res.json();
+    console.log(data);
+    if (data.error) {
+        data = [];
+    }
 
     return (
         <div className="p-8">

@@ -1,7 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
-import { Cart } from "@/entity/Cart";
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
+
 @Entity()
-export class Item {
+export class Feature {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -13,15 +13,11 @@ export class Item {
     @Column({
         nullable: false,
     })
-    price: number;
+    feature: string;
 
-    @Column({
-        nullable: false,
-    })
-    stock: number;
-
-    @OneToMany(() => Cart, (cart) => cart.item)
-    carts: Cart[];
+    @OneToOne(() => Feature, { nullable: true })
+    @JoinColumn()
+    parentfeature: Feature;
 
     @Column({
         type: "datetime",

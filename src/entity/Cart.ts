@@ -1,22 +1,27 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToOne, JoinColumn } from "typeorm";
+import { Item } from "@/entity/Item";
+import { Session } from "@/entity/Session";
 
 @Entity()
 export class Cart {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    sessionid: number;
+    @ManyToOne(() => Session, (session) => session.carts)
+    session: Session;
 
-    @Column()
-    itemid: number;
+    @ManyToOne(() => Item, (item) => item.carts)
+    item: Item;
 
-    @Column()
+    @Column({
+        nullable: false,
+    })
     itemqty: number;
 
     @Column({
         type: "datetime",
         default: () => "NOW()",
+        nullable: false,
     })
     createdon: string;
 

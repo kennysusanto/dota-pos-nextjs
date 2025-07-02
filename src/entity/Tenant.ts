@@ -1,7 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
-import { Cart } from "@/entity/Cart";
+import { User } from "@/entity/User";
+
 @Entity()
-export class Item {
+export class Tenant {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -10,18 +11,8 @@ export class Item {
     })
     name: string;
 
-    @Column({
-        nullable: false,
-    })
-    price: number;
-
-    @Column({
-        nullable: false,
-    })
-    stock: number;
-
-    @OneToMany(() => Cart, (cart) => cart.item)
-    carts: Cart[];
+    @OneToMany(() => User, (user) => user.tenant)
+    users: User[];
 
     @Column({
         type: "datetime",

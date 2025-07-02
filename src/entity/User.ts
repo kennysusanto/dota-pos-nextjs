@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable, UsingJoinTableIsNotAllowedError } from "typeorm";
+import { Tenant } from "@/entity/Tenant";
+import { Role } from "@/entity/Role";
 
 @Entity()
 export class User {
@@ -8,21 +10,36 @@ export class User {
     @Column({
         length: 100,
         unique: true,
+        nullable: false,
     })
     username: string;
 
-    @Column()
+    @Column({
+        nullable: false,
+    })
     password: string;
 
-    @Column()
+    @Column({
+        nullable: false,
+    })
     firstname: string;
 
-    @Column()
+    @Column({
+        nullable: false,
+    })
     lastname: string;
+
+    @ManyToOne(() => Tenant, (tenant) => tenant.users)
+    tenant: Tenant;
+
+    @ManyToMany(() => Role)
+    @JoinTable()
+    roles: Role[];
 
     @Column({
         type: "datetime",
         default: () => "NOW()",
+        nullable: false,
     })
     createdon: string;
 

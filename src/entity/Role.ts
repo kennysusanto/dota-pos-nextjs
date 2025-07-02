@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
-import { Cart } from "@/entity/Cart";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from "typeorm";
+import { Feature } from "@/entity/Feature";
+
 @Entity()
-export class Item {
+export class Role {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -10,18 +11,9 @@ export class Item {
     })
     name: string;
 
-    @Column({
-        nullable: false,
-    })
-    price: number;
-
-    @Column({
-        nullable: false,
-    })
-    stock: number;
-
-    @OneToMany(() => Cart, (cart) => cart.item)
-    carts: Cart[];
+    @ManyToMany(() => Feature)
+    @JoinTable()
+    features: Feature[];
 
     @Column({
         type: "datetime",

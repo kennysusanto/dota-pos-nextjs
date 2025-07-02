@@ -3,6 +3,12 @@ import { GetDBSettings, IDBSettings } from "@/shared/common";
 import { DataSource } from "typeorm";
 import { Photo } from "@/entity/Photo";
 import { User } from "@/entity/User";
+import { Cart } from "@/entity/Cart";
+import { Item } from "@/entity/Item";
+import { Session } from "@/entity/Session";
+import { Feature } from "@/entity/Feature";
+import { Role } from "@/entity/Role";
+import { Tenant } from "@/entity/Tenant";
 
 let connectionParams = GetDBSettings();
 
@@ -15,7 +21,7 @@ export const AppDataSource = new DataSource({
     database: connectionParams.database,
     synchronize: true,
     logging: true,
-    entities: [Photo, User],
+    entities: [Cart, Feature, Item, Photo, Role, Session, Tenant, User],
     subscribers: [],
     migrations: [],
 });
